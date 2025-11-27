@@ -1,3 +1,8 @@
+/* ==================================== */
+/* 樣式設定檔：style.css (2025/11/27) */
+/* ==================================== */
+
+/* --- 通用設定與字體 --- */
 :root {
     --primary-color: #0077ff; /* 科技藍 */
     --secondary-color: #00ffc8; /* 霓虹綠/青色 */
@@ -43,7 +48,8 @@ h3 {
     color: white;
     padding: 150px 0;
     text-align: center;
-    overflow: hidden; /* 確保內容不溢出 */
+    overflow: hidden; 
+    position: relative; /* 用於定位子元素 */
 }
 
 .hero-content h1 {
@@ -51,7 +57,6 @@ h3 {
     font-weight: 700;
     margin-bottom: 10px;
     letter-spacing: 5px;
-    /* 動畫元素: 讓名字帶有霓虹光 */
     text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
 }
 
@@ -59,17 +64,44 @@ h3 {
     font-size: 1.5em;
     font-weight: 300;
     color: var(--secondary-color);
+    margin-bottom: 30px;
 }
 
+/* --- 大頭照樣式 --- */
+.profile-photo {
+    margin: 30px auto 20px; 
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%; /* 圓形 */
+    overflow: hidden; 
+    border: 5px solid var(--secondary-color); /* 霓虹邊框 */
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
+    position: relative; 
+    z-index: 2; /* 確保照片在前面 */
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+}
+
+/* --- 晶片背景裝飾樣式 (chip-graphic) --- */
 .chip-graphic {
-    width: 80px;
-    height: 80px;
-    margin: 30px auto 0;
+    width: 150px; 
+    height: 150px;
+    /* 關鍵：使用負邊距將它往上拉，讓它跑到照片的後方 */
+    margin: -200px auto 0; 
     border: 3px solid var(--primary-color);
     background-color: #333;
     /* 模擬晶片邊框和脈衝動畫 */
     box-shadow: 0 0 15px rgba(0, 119, 255, 0.7);
     animation: pulse 2s infinite alternate;
+    position: relative; 
+    z-index: 1; /* 讓它在照片後面 */
+    opacity: 0.5; /* 半透明 */
+    border-radius: 10px; /* 稍微圓角 */
 }
 
 @keyframes pulse {
@@ -81,7 +113,7 @@ h3 {
     }
 }
 
-/* --- 卡片通用樣式 --- */
+/* --- 卡片通用樣式 (Goals, AI Sections) --- */
 .goal-cards, .ai-cards {
     display: flex;
     justify-content: space-between;
@@ -223,29 +255,23 @@ footer {
 }
 
 /* 各種動畫類型 */
-
-/* 淡入 */
 .aos-item.fade-in {
     transition: opacity 1.5s ease;
 }
 
-/* 向上滑入 */
 .aos-item.slide-up {
     transform: translateY(50px);
 }
 
-/* 向右滑入 (用於卡片) */
 .aos-item.slide-right {
     transform: translateX(-50px);
 }
 
-/* 放大進入 */
 .aos-item.scale-up {
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* 翻轉 (3D 效果) */
 .aos-item.flip-x {
     transform: perspective(1000px) rotateX(90deg);
     transition: opacity 1s ease, transform 1s ease;
@@ -254,19 +280,19 @@ footer {
     transform: perspective(1000px) rotateX(0deg);
 }
 
-/* 延遲效果 (用於卡片組或流程圖) */
+/* 延遲效果 */
 .aos-item.delay-1 { transition-delay: 0.1s; }
 .aos-item.delay-2 { transition-delay: 0.2s; }
 .aos-item.delay-3 { transition-delay: 0.3s; }
 
-/* 流程圖的繪製動畫 (需要 JavaScript 配合調整) */
+/* 流程圖的繪製動畫 */
 .flow-arrow.stroke-draw {
-    transform: scaleX(0); /* 預設將箭頭縮小到 0 */
+    transform: scaleX(0); 
     transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
     transform-origin: left;
 }
 .flow-arrow.stroke-draw.aos-animate {
-    transform: scaleX(1); /* 進入時放大到 1 */
+    transform: scaleX(1); 
 }
 
 /* --- RWD 響應式設計 (讓手機版也美觀) --- */
@@ -291,5 +317,9 @@ footer {
     .flow-step {
         width: 100%;
         margin: 10px 0;
+    }
+    /* 在手機上調整照片背景的位移量 */
+    .chip-graphic {
+        margin: -150px auto 0; /* 調整負邊距，避免太靠近標題 */
     }
 }
