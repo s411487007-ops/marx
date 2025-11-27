@@ -87,31 +87,6 @@ h3 {
     display: block; 
 }
 
-/* --- 晶片背景裝飾樣式 (chip-graphic) --- */
-.chip-graphic {
-    width: 150px; 
-    height: 150px;
-    /* 關鍵：使用負邊距將它往上拉，讓它跑到照片的後方 */
-    margin: -200px auto 0; 
-    border: 3px solid var(--primary-color);
-    background-color: #333;
-    /* 模擬晶片邊框和脈衝動畫 */
-    box-shadow: 0 0 15px rgba(0, 119, 255, 0.7);
-    animation: pulse 2s infinite alternate;
-    position: relative; 
-    z-index: 1; /* 讓它在照片後面 */
-    opacity: 0.5; /* 半透明 */
-    border-radius: 10px; /* 稍微圓角 */
-}
-
-@keyframes pulse {
-    from {
-        box-shadow: 0 0 15px rgba(0, 119, 255, 0.7);
-    }
-    to {
-        box-shadow: 0 0 25px var(--secondary-color);
-    }
-}
 
 /* --- 卡片通用樣式 (Goals, AI Sections) --- */
 .goal-cards, .ai-cards {
