@@ -4,19 +4,14 @@
 
 /* --- 通用設定與字體 --- */
 :root {
-    --primary-color: #0077ff; /* 科技藍 */
-    --secondary-color: #00ffc8; /* 霓虹綠/青色 */
-    --dark-bg: #111111;
-    --light-bg: #ffffff;
-    --text-color: #333333;
+    --primary: #00d4ff;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --card-bg: #ffffff;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--text-color);
