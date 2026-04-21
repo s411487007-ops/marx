@@ -4,11 +4,14 @@
 
 /* --- 通用設定與字體 --- */
 :root {
-    --primary: #00d4ff;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --gray: #64748b;
-    --card-bg: #ffffff;
+    /* 變數名稱統一，確保後面都能抓到 */
+    --primary-color: #00b4d8;    /* 質感青藍色 */
+    --secondary-color: #0077ff;  /* 輔助科技藍 */
+    --dark-bg: #1e293b;          /* 深藍色 (保留給頁尾等區塊使用) */
+    --light-bg: #ffffff;         /* 全域純白背景 */
+    --card-bg: #f8fafc;          /* 卡片淺灰背景，增加層次 */
+    --text-color: #1e293b;       /* 文字改為深灰色，白底閱讀更舒適 */
+    --text-muted: #64748b;       /* 次要描述文字 */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
